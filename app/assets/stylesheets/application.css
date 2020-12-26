@@ -18,3 +18,12 @@ body {
     font-family: Arial;
     color: #444444;
 }
+
+.notice {
+    background-color: aqua;
+}
+
+.alert {
+    background-color: red;
+    color: #eeeeee;
+}
