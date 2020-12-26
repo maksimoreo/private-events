@@ -1,3 +1,15 @@
+<h1>USER INFO</h1>
 <p>Username: <%= @user.username %></p>
 <p>Name: <%= @user.name %></p>
 <p>ID: <%= @user.id %></p>
+
+<h1>HOSTED EVENTS</h1>
+<% if @user.hosted_events.any? %>
+  <ul>
+    <% @user.hosted_events.each do |event| %>
+      <li><% event.description %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>This used didn't host any event yet :(</p>
+<% end %>
