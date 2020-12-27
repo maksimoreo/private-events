@@ -3,15 +3,25 @@
 <p>Name: <%= @user.name %></p>
 <p>ID: <%= @user.id %></p>
 
+byebug
+
+<h1>UPCOMING EVENTS</h1>
+<% if @user.upcoming_events.any? %>
+  <%= render partial: 'small_event', collection: @user.upcoming_events %>
+<% else %>
+  <p>This used doesn't attend to any upcoming event yet :(</p>
+<% end %>
+
+<h1>PREVIOUSLY ATTENDED EVENTS</h1>
+<% if @user.previous_events.any? %>
+  <%= render partial: 'small_event', collection: @user.previous_events %>
+<% else %>
+  <p>This used didn't attend at any event yet :(</p>
+<% end %>
+
 <h1>HOSTED EVENTS</h1>
 <% if @user.hosted_events.any? %>
-  <% @user.hosted_events.each do |event| %>
-    <div class="event">
-      <p>
-        <%= link_to "#{event.event_datetime}, #{event.location}", event %>
-      </p>
-    </div>
-  <% end %>
+  <%= render partial: 'small_event', collection: @user.hosted_events %>
 <% else %>
   <p>This used didn't host any event yet :(</p>
 <% end %>

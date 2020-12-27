@@ -5,9 +5,13 @@
   <p>Hosted by: <%= link_to @event.hoster.name, @event.hoster %></p>
 </div>
 
-<h1>PARTICIPATNS</h1>
+<h1>ATTENDEES</h1>
 <div>
   <ul>
-
+    <% @event.attendees.each do |attendee| %>
+      <li>
+        <%= attendee.name %> (@<%= attendee.username %>)
+      </li>
+    <% end %>
   </ul>
 </div>
