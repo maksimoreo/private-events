@@ -1,0 +1,13 @@
+<h1>EVENT</h1>
+<div class="event">
+  <h4><%= @event.event_datetime %>, <%= @event.location %></h4>
+  <p><%= @event.description %></p>
+  <p>Hosted by: <%= link_to @event.hoster.name, @event.hoster %></p>
+</div>
+
+<h1>PARTICIPATNS</h1>
+<div>
+  <ul>
+
+  </ul>
+</div>

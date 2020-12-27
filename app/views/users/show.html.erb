@@ -5,11 +5,13 @@
 
 <h1>HOSTED EVENTS</h1>
 <% if @user.hosted_events.any? %>
-  <ul>
-    <% @user.hosted_events.each do |event| %>
-      <li><% event.description %></li>
-    <% end %>
-  </ul>
+  <% @user.hosted_events.each do |event| %>
+    <div class="event">
+      <p>
+        <%= link_to "#{event.event_datetime}, #{event.location}", event %>
+      </p>
+    </div>
+  <% end %>
 <% else %>
   <p>This used didn't host any event yet :(</p>
 <% end %>

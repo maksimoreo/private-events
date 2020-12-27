@@ -27,3 +27,13 @@ body {
     background-color: red;
     color: #eeeeee;
 }
+
+.event {
+    background-color: #eeeeff;
+    margin: 10px;
+    padding: 10px;
+}
+
+.event:nth-child(even) {
+    text-align: right;
+}
