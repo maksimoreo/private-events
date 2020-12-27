@@ -7,21 +7,21 @@ byebug
 
 <h1>UPCOMING EVENTS</h1>
 <% if @user.upcoming_events.any? %>
-  <%= render partial: 'small_event', collection: @user.upcoming_events %>
+  <%= render partial: 'events/event_small', collection: @user.upcoming_events, as: :event %>
 <% else %>
   <p>This used doesn't attend to any upcoming event yet :(</p>
 <% end %>
 
 <h1>PREVIOUSLY ATTENDED EVENTS</h1>
 <% if @user.previous_events.any? %>
-  <%= render partial: 'small_event', collection: @user.previous_events %>
+  <%= render partial: 'events/event_small', collection: @user.previous_events, as: :event %>
 <% else %>
   <p>This used didn't attend at any event yet :(</p>
 <% end %>
 
 <h1>HOSTED EVENTS</h1>
 <% if @user.hosted_events.any? %>
-  <%= render partial: 'small_event', collection: @user.hosted_events %>
+  <%= render partial: 'events/event_small', collection: @user.hosted_events, as: :event %>
 <% else %>
   <p>This used didn't host any event yet :(</p>
 <% end %>
