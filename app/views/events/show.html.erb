@@ -2,12 +2,16 @@
 <div class="event">
   <h4><%= @event.event_datetime %>, <%= @event.location %></h4>
   <p><%= @event.description %></p>
-  <p>Hosted by: <%= link_to @event.hoster.name, @event.hoster %></p>
+  <p>Hosted by: <%= link_to @event.hoster.username, @event.hoster %></p>
 </div>
 
 <p>
   <% if logged_in? %>
-    <%= link_to 'Attend', event_attendances_path(event_id: @event.id), method: :create %>
+    <% if EventAttendance.find_by(attendee: current_user, attended_event: @event) %>
+      <p>Already registered for this event!</p>
+    <% else %>
+      <%= link_to 'Attend', event_attendances_path(event_id: @event.id), method: :create %>
+    <% end %>
   <% else %>
     <%= link_to 'Log in', login_path %> to attend on this event!
   <% end %>
@@ -18,7 +22,7 @@
   <ul>
     <% @event.attendees.each do |attendee| %>
       <li>
-        <%= attendee.name %> (@<%= attendee.username %>)
+        <%= attendee.username %>
       </li>
     <% end %>
   </ul>
