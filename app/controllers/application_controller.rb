@@ -9,4 +9,11 @@ class ApplicationController < ActionController::Base
 
   helper_method :logged_in?
   helper_method :current_user
+
+  def authenticate_user!
+    unless logged_in?
+      flash[:error] = "You must log in to proceed!"
+      redirect_to login_path
+    end
+  end
 end

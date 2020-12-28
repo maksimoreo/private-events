@@ -16,13 +16,15 @@
     <div>
       <ul>
         <% if logged_in? %>
-          <li>Logged in as <%= current_user.name %> (@<%= current_user.username %>)</li>
+          <li>Logged in as <%= link_to "#{current_user.name} (@#{current_user.username})", current_user %></li>
           <li><%= link_to 'Host new event', new_event_path %></li>
           <li><%= link_to 'Log out', logout_path, method: :delete %></li>
         <% else %>
           <li>Not logged in</li>
-          <li><%= link_to 'Log in', login_path %></li>
+          <li><%= link_to 'Log in', login_path %> / <%= link_to 'Sign up', new_user_path %></li>
         <% end %>
+
+        <li><%= link_to 'Events', events_path %></li>
       </ul>
     </div>
 
